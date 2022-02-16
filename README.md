@@ -1,9 +1,9 @@
 ## How to start
 
-Download the dataset files at `s3://sentiment-analysis-150222` as the following:
+Download the dataset files stored at `s3://sentiment-analysis-150222` with the following make target:
 
 ```shell
-aws s3 cp s3://sentiment-analysis-150222 ./datasets
+make pull
 ```
 
 Create a virtual environment to install the python dependencies:

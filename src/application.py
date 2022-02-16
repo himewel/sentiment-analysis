@@ -4,7 +4,7 @@ from flask import Flask, request, make_response, render_template
 import fasttext
 
 app = Flask(__name__)
-model = fasttext.load_model('model/fasttext.ftz')
+model = fasttext.load_model('models/fasttext-2.ftz')
 
 
 @app.route('/', methods=['GET'])
