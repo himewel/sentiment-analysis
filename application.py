@@ -26,16 +26,5 @@ def predict():
         return make_response(str(e), 500)
 
 
-@app.route("/hi")
-def hello():
-    return "Hello, World!"
-
-
-@app.route("/list")
-def hello_test():
-    ls_list = os.listdir()
-    return ','.join(ls_list)
-
-
 if __name__ == "__main__":
     app.run()

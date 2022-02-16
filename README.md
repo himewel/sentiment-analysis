@@ -17,3 +17,11 @@ Then, enter into the virtual environment shell:
 ```bash
 source .venv/bin/activate
 ```
+
+So, you can install the dependencies:
+
+```bash
+pip install \
+    --no-cache-dir \
+    --requirements ./requirements.txt
+```
