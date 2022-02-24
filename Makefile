@@ -6,8 +6,8 @@ train:
 
 .PHONY: push
 push:
-	aws s3 cp models -s3://sentiment-analysis-150222/models
+	gsutil -m cp -r models gs://sentiment-analysis-240222/models
 
 .PHONY: pull
 pull:
-	aws s3 sync --no-progress s3://sentiment-analysis-150222/ .
+	gsutil -m rsync -r gs://sentiment-analysis-240222/ .

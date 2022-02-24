@@ -1,6 +1,6 @@
 ## How to start
 
-Download the dataset files stored at `s3://sentiment-analysis-150222` with the following make target:
+Download the dataset files stored at `gs://sentiment-analysis-240222` with the following make target:
 
 ```shell
 make pull
