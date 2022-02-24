@@ -4,15 +4,10 @@ from flask import Flask, request, make_response, render_template
 import fasttext
 
 app = Flask(__name__)
-model = fasttext.load_model('models/fasttext-2.ftz')
+model = fasttext.load_model("models/fasttext-3.ftz")
 
 
-@app.route('/', methods=['GET'])
-def index():
-    return render_template('index.html')
-
-
-@app.route('/predict', methods=['POST'])
+@app.route("/predict", methods=["POST"])
 def predict():
     try:
         request_dict = request.form if request.form else request.get_json()
