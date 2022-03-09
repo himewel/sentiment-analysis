@@ -13,6 +13,7 @@ resource "google_compute_subnetwork" "subnet_1" {
 resource "google_compute_firewall" "allow_http" {
     name    = "allow-http"
     network = google_compute_network.vpc_network.name
+    source_ranges = ["0.0.0.0/0"]
 
     allow {
         protocol = "tcp"
@@ -25,6 +26,7 @@ resource "google_compute_firewall" "allow_http" {
 resource "google_compute_firewall" "allow_ssh" {
     name    = "allow-ssh"
     network = google_compute_network.vpc_network.name
+    source_ranges = ["0.0.0.0/0"]
 
     allow {
         protocol = "tcp"
