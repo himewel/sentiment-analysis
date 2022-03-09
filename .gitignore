@@ -2,3 +2,6 @@
 **/.ipynb_checkpoints/
 datasets/
 models/
+**/.terraform/*
+**/terraform.tfstate*
+**/*.lock.hcl

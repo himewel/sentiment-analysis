@@ -11,3 +11,7 @@ push:
 .PHONY: pull
 pull:
 	gsutil -m rsync -r gs://sentiment-analysis-240222/ .
+
+.PHONY: tf-backend
+tf-backend:
+	gsutil mb gs://tf-backend-080222/
