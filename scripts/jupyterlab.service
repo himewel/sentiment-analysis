@@ -1,0 +1,10 @@
+[Unit]
+Description=JupyterLab
+After=syslog.target network.target
+
+[Service]
+User=root
+ExecStart=python3 -m jupyterlab --port 80 --no-browser --allow-root --ServerApp.token='' --ServerApp.password=''
+
+[Install]
+WantedBy=multi-user.target
