@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -e -x
 
 sudo apt-get update
 sudo apt-get install --yes \
@@ -10,7 +10,7 @@ sudo apt-get install --yes \
 pip3 install --upgrade "jupyterlab>=3.3.0"
 
 sudo mkdir -p /opt/jupyterlab/etc/systemd
-sudo mv jupyterlab.service /opt/jupyterlab/etc/systemd/
+sudo mv ./scripts/jupyterlab.service /opt/jupyterlab/etc/systemd/
 
 sudo ln -s /opt/jupyterlab/etc/systemd/jupyterlab.service /etc/systemd/system/jupyterlab.service
 sudo systemctl daemon-reload
