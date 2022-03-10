@@ -1,6 +1,6 @@
 resource "google_compute_instance" "vm_instance" {
     name         = "sentiment-analysis-instance"
-    machine_type = "f1-micro"
+    machine_type = "e2-medium"
 
     boot_disk {
         initialize_params {
