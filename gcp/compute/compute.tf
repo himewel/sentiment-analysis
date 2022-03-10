@@ -4,7 +4,7 @@ resource "google_compute_instance" "vm_instance" {
 
     boot_disk {
         initialize_params {
-            image = "debian-cloud/debian-9"
+            image = "ubuntu-os-cloud/ubuntu-2004-lts"
         }
     }
 
@@ -20,5 +20,5 @@ resource "google_compute_instance" "vm_instance" {
         scopes = ["cloud-platform"]
     }
 
-    tags = ["allow-ssh", "allow-http", "http-server", "https-server"]
+    tags = ["allow-ssh", "allow-http"]
 }
