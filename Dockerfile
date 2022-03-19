@@ -19,6 +19,6 @@ COPY models/fasttext-3.ftz ./models/fasttext-3.ftz
 EXPOSE 5000
 
 CMD poetry run gunicorn \
-    --workers 8  \
+    --workers 4  \
     --bind 0.0.0.0:5000 \
     src:app
