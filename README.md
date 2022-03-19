@@ -1,3 +1,13 @@
+# Sentiment Analysis
+
+<p>
+<img alt="Google Cloud" src="https://img.shields.io/badge/googlecloud-%234285F4.svg?&style=for-the-badge&logo=googlecloud&logoColor=white"/>
+<img alt="Terraform" src="https://img.shields.io/badge/terraform-%237b42bc.svg?&style=for-the-badge&logo=terraform&logoColor=white"/>
+<img alt="Kubernetes" src="https://img.shields.io/badge/kubernetes-%23326ce5.svg?&style=for-the-badge&logo=kubernetes&logoColor=white"/>
+<img alt="Docker" src="https://img.shields.io/badge/docker-%232496ED.svg?&style=for-the-badge&logo=docker&logoColor=white"/>
+</p>
+
+
 ## How to start
 
 Download the dataset files stored at `gs://sentiment-analysis-240222` with the following make target:
@@ -6,31 +16,23 @@ Download the dataset files stored at `gs://sentiment-analysis-240222` with the f
 make pull
 ```
 
-Create a virtual environment to install the python dependencies:
+Install [poetry](https://python-poetry.org/) to manage the dependencies and virtual environment, so install the packages by the following:
 
 ```bash
-python3.8 -m venv .venv
+poetry install
 ```
 
 Then, enter into the virtual environment shell:
 
 ```bash
-source .venv/bin/activate
-```
-
-So, you can install the dependencies:
-
-```bash
-pip install \
-    --no-cache-dir \
-    --requirements ./requirements.txt
+poetry shell
 ```
 
 # Compute engine deployment
 
 The following steps presents how to deploy a virtual machine as a development environment for this application. First, you must install Terraform and provide you Google Cloud credentials. Then, change the project name and region in the `gcp/compute/variables.tf`:
 
-```hcl
+```terraform
 variable "project" {
   default = "weather-297102"
 }

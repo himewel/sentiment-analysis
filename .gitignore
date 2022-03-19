@@ -1,5 +1,7 @@
 .venv/
 **/.ipynb_checkpoints/
+**/__pycache__/
+poetry.lock
 datasets/
 models/
 **/.terraform/*
