@@ -4,6 +4,12 @@ terraform {
     bucket = "tf-backend-080222"
     prefix = "terraform/state/compute"
   }
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "3.52.0"
+    }
+  }
 }
 
 provider "google" {
