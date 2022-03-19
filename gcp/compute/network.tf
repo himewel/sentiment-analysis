@@ -1,5 +1,5 @@
 resource "google_compute_network" "vpc_network" {
-  name                    = "sentiment-analysis-network"
+  name                    = "sentiment-analysis-compute-network"
   auto_create_subnetworks = false
 }
 
