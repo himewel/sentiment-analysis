@@ -18,13 +18,13 @@ make pull
 
 Install [poetry](https://python-poetry.org/) to manage the dependencies and virtual environment, so install the packages by the following:
 
-```bash
+```shell
 poetry install
 ```
 
 Then, enter into the virtual environment shell:
 
-```bash
+```shell
 poetry shell
 ```
 
@@ -55,9 +55,10 @@ make tf-backend
 Finally, init, plan and apply the Terraform resources as the following:
 
 ```shell
-terraform init gcp/compute
-terraform plan gcp/compute
-terraform apply gcp/compute
+cd ./gcp/compute
+terraform init
+terraform plan
+terraform apply
 ```
 
 The external IP of the virtual machine created can be found by listing the compute instances of your project, as the following command:
@@ -84,4 +85,46 @@ Then, you can repeat the step at the *How to start* section and then start the a
 
 ```shell
 sudo python3 src/application.py
+```
+
+# Kubernetes engine deployment
+
+Similar to the first steps at Compute Engine Deployment, you have to declare project, region and credentials to apply the Terraform modules. So, you will be able to apply the `gcp/kubernetes` modules and create a GKE cluster, a VPC network where the nodes will get an address, and a Container Registry to store the Docker image of the project, as the following:
+
+```shell
+cd ./gcp/kubernetes
+terraform init
+terraform plan
+terraform apply
+```
+
+In a few minutes you can check if your cluster was created with:
+
+```shell
+gcloud container clusters list
+```
+
+Then, build and push a Docker image of the project to a repository visible to GKE. You can do this as the following:
+
+```shell
+# get the credentials to push the image
+gcloud auth configure-docker
+# so build and push the image
+docker build . --tag gcr.io/weather-297102/sentiment-analysis
+docker push gcr.io/weather-297102/sentiment-analysis
+```
+
+Now you can create the pods where your application will be deployed in the Kubernetes cluster with [kubectl](https://kubernetes.io/docs/tasks/tools/):
+
+```shell
+# get the credentials to manage you cluster
+gcloud container get-credentials sentiment-analysis-gke
+# create the services declared in ./templates
+kubectl apply -f templates
+```
+
+Finally, check the services to get the endpoint where the API will be provided:
+
+```shell
+kubectl get services
 ```
