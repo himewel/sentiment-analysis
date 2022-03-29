@@ -4,7 +4,7 @@ DATA_BUCKET=sentiment-analysis-240222
 
 .PHONY: train
 train:
-	python src/train.py
+	python3 src/train.py
 
 .PHONY: push
 push:

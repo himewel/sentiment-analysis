@@ -8,7 +8,7 @@ sudo apt-get install --yes \
     python3-venv
 
 pip3 install --upgrade "jupyterlab>=3.3.0"
-pip3 uninstall markupsafe
+pip3 uninstall --yes markupsafe
 
 sudo mkdir -p /opt/jupyterlab/etc/systemd
 sudo cp ./scripts/jupyterlab.service /opt/jupyterlab/etc/systemd/
