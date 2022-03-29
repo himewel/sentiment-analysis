@@ -118,7 +118,7 @@ Now you can create the pods where your application will be deployed in the Kuber
 
 ```shell
 # get the credentials to manage you cluster
-gcloud container get-credentials sentiment-analysis-gke
+gcloud container clusters get-credentials sentiment-analysis-gke
 # create the services declared in ./templates
 kubectl apply -f templates
 ```
